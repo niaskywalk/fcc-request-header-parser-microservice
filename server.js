@@ -3,7 +3,6 @@
 
 // init project
 var express = require('express');
-var useragent = require('useragent');
 var app = express();
 
 // we've started you off with Express, 
@@ -14,8 +13,10 @@ app.use(express.static('public'));
 
 
 app.get("/", function(req, res){
-  var agent = useragent.parse(req.headers['user-agent']);
-  res.send(agent.toString());
+  var regex = /\((.*?)\)/;
+  var matches = regex.exec(req.headers['user-agent']);
+  console.log(req);
+  res.send(req.ip + " " + matches[1]);
 });
 
 
