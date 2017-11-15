@@ -15,7 +15,7 @@ app.use(express.static('public'));
 app.get("/", function(req, res){
   var regex = /\((.*?)\)/;
   var matches = regex.exec(req.headers['user-agent']);
-  console.log(req);
+  console.log(req.headers);
   res.send(req.ip + " " + matches[1]);
 });
 
