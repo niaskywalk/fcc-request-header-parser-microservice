@@ -13,9 +13,9 @@ var app = express();
 app.use(express.static('public'));
 
 
-app.get("/whoami", function(req, res){
-  console.log(req);
-  res.send("<h1>fuck you</h1>");
+app.get("/", function(req, res){
+  var agent = useragent.parse(req.headers['user-agent']);
+  res.send(agent.toString());
 });
 
 
