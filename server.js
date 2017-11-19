@@ -16,7 +16,7 @@ app.get("/", function(req, res){
   var regex = /\((.*?)\)/;
   var matches = regex.exec(req.headers['user-agent']);
   console.log(req.headers);
-  res.send(req.ip + " " + matches[1]);
+  res.send({req.ip + ">>> " + matches[1]});
 });
 
 
