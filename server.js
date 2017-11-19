@@ -5,8 +5,11 @@ var app = express();
 // http://expressjs.com/en/starter/static-files.html
 app.use(express.static('public'));
 
+app.get("/", function(req, res) {
+  res.send("<h1>Go to /whoami</h1>");
+});
 
-app.get("/", function(req, res){
+app.get("/whoami", function(req, res){
   var regex = /\((.*?)\)/;
   var regexip = /(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})/;
   var regexlang = /(\w{2}-\w{2})\,/;
