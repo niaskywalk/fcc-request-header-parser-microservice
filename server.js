@@ -17,7 +17,7 @@ app.get("/", function(req, res){
   var regexip = /(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})/
   var matches = regex.exec(req.headers['user-agent']);
   var ipmatch = regexip.exec(req.ip);
-  console.log(req.headers);
+  console.log(req.headers["accept-language"]);
   res.send('{"ipaddress": "' + ipmatch[1] + '", "language": "", "software": "' + matches[1] + '"}');
 });
 
