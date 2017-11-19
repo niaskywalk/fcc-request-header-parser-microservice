@@ -14,9 +14,11 @@ app.use(express.static('public'));
 
 app.get("/", function(req, res){
   var regex = /\((.*?)\)/;
+  var regexip = /(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})/
   var matches = regex.exec(req.headers['user-agent']);
+  var ipmatch = regexip.exec(req.ip);
   console.log(req.headers);
-  res.send('{"ipaddress": "' + req.ip + '", "language": "", "software": "' + matches[1] + '"}');
+  res.send('{"ipaddress": "' + ipmatch[1] + '", "language": "", "software": "' + matches[1] + '"}');
 });
 
 
